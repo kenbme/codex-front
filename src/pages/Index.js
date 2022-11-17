@@ -1,11 +1,32 @@
+import NavBar from "../components/navbar/NavBar";
+import { useEffect, useState } from "react";
+
 function Index() {
+  const [token, setToken] = useState(undefined);
+  useEffect(() => {
+    fetch("http://localhost:4000/signin", {
+      method: "POST",
+      body: JSON.stringify({
+        username: "Joao12",
+        password: "senhaDificil123!",
+      }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((response) => response.json())
+      .then((json) => setToken(json.token))
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(token);
+
   return (
     <>
+      <NavBar />
       <main>
         <div id="apresentacao">
           <h1>Codex - Project</h1>
           <hr color="#13678A" />
-          <p class="paragrafo">
+          <p className="paragrafo">
             {" "}
             Esse projeto tem por objetivo mostar a interatividade entre o
             front-end e o back-end através de uma API. Com isso, criamos um
@@ -21,7 +42,8 @@ function Index() {
               width="300px"
               height="300px"
               border="5px"
-              class="imagem-apresentacao"
+              className="imagem-apresentacao"
+              alt="garçom"
             />
           </div>
         </div>
