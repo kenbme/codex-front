@@ -1,13 +1,17 @@
-function Login() {
-    const submit = () => {
-        const data = Object.fromEntries(new FormData(document.querySelector('#login')).entries());
+import { useState } from "react";
+
+function Login(props) {
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+    const loginSubmit = (e) => {
+      e.preventDefault();
         fetch("http://localhost:4000/signin", {
             method: "POST",
-            body: JSON.stringify(data),
-            headers: { "Content-type": "application/json; charset=UTF-8" },
+            body: JSON.stringify({username: username, password: password}),
+            headers: { "Content-type": "application/json", "charset": "UTF-8" },
         })
         .then((response) => response.json())
-        .then((json) => console.log(json))
+        .then((json) => {props.setToken(json); props.setUsername(username)})
         .catch((err) => console.log(err));
     };
   return (
@@ -35,7 +39,7 @@ function Login() {
         </div>
       </nav>
       <div className="main-login">
-        <form id="login">
+        <form onSubmit={loginSubmit} id="login">
           <div className="divs-login">
             <h1>Login</h1>
           </div>
@@ -44,16 +48,16 @@ function Login() {
 
           <div className="divs-login">
             <label>Usuario</label>
-            <input name="username" type="text" className="divs-botao" />
+            <input onChange={e => setUsername(e.target.value)} type="text" className="divs-botao" />
           </div>
 
           <div className="divs-login">
             <label>Senha</label>
-            <input name="password" type="text" className="divs-botao" />
+            <input onChange={e => setPassword(e.target.value)} type="password" className="divs-botao" />
           </div>
 
           <div className="div-btn-login">
-            
+            <input id="btn-login" type="submit" value="Login"/>
           </div>
 
           <div className="link-cadastro">
@@ -62,7 +66,7 @@ function Login() {
             </p>
           </div>
         </form>
-        <button id="btn-login" onClick={submit}>Login</button>
+        
       </div>
     </>
   );
