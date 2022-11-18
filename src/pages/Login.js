@@ -44,12 +44,12 @@ function Login() {
 
           <div className="divs-login">
             <label>Usuario</label>
-            <input id="input-usuario" name="username" type="text" className="divs-botao" />
+            <input name="username" type="text" className="divs-botao" />
           </div>
 
           <div className="divs-login">
             <label>Senha</label>
-            <input id="input-senha" name="password" type="text" className="divs-botao" />
+            <input name="password" type="text" className="divs-botao" />
           </div>
 
           <div className="div-btn-login">
