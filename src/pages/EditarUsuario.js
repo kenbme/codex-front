@@ -1,92 +1,139 @@
 import { useState } from "react";
 
-function EditarUsuario({ user }) {
+function EditarUsuario({ user, logout }) {
   const [fullname, setFullname] = useState();
   const [birthdate, setBirthdate] = useState();
   const [gender, setGender] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  if (user) {
-    const editarUsuarioSubmit = (e) => {
-      e.preventDefault();
-      var _gender = "";
-      switch (gender) {
-        case "Masculino":
-          _gender = "Male";
-          break;
-        case "Feminino":
-          _gender = "Female";
-          break;
-        case "Outros":
-          _gender = "Other";
-      }
-      fetch(`http://localhost:4000/users/${user.username}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          fullname: fullname,
-          birthdate: birthdate,
-          gender: _gender,
-          email: email,
-          password: password,
-        }),
+  const editarUsuarioSubmit = (e) => {
+    e.preventDefault();
+    var _gender = "";
+    switch (gender) {
+      case "Masculino":
+        _gender = "Male";
+        break;
+      case "Feminino":
+        _gender = "Female";
+        break;
+      case "Outros":
+        _gender = "Other";
+    }
+    fetch(`http://localhost:4000/users/${user.username}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        fullname: fullname,
+        birthdate: birthdate,
+        gender: _gender,
+        email: email,
+        password: password,
+      }),
+      headers: {
+        "Content-type": "application/json",
+        charset: " UTF-8",
+        "x-access-token": user.token,
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.errors) {
+          window.alert("ERRO: " + JSON.stringify(json.errors));
+        } else {
+          window.alert("USUÁRIO FOI ATUALIZADO.");
+        }
+      });
+  };
+
+  const deletarConta = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:4000/users/${user.username}`, {
+      method: "DELETE",
+      headers: {
         headers: {
           "Content-type": "application/json",
           charset: " UTF-8",
           "x-access-token": user.token,
         },
-      })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
-    };
-    return (
-      <main>
-        <form onSubmit={editarUsuarioSubmit}>
-          <div class="div-editar-dados">
-            <h1>Editar Usuário</h1>
-          </div>
-          <hr color="#13678A" />
+      },
+      headers: {
+        "Content-type": "application/json",
+        charset: " UTF-8",
+        "x-access-token": user.token,
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.errors) {
+          window.alert("ERRO: " + JSON.stringify(json.errors));
+        }
+        window.alert("USUÁRIO DELETADO.");
+        logout();
+      });
+  };
 
-          <div class="div-editar-dados">
-            <label>Nome completo</label>
-            <input type="text" class="divs-botao" />
-            <br />
-          </div>
+  return (
+    <main>
+      <form onSubmit={editarUsuarioSubmit}>
+        <div className="divs-cadastro">
+          <label>Nome completo</label>
+          <input
+            onChange={(e) => setFullname(e.target.value)}
+            type="text"
+            className="divs-botao"
+          />
+          <br />
+        </div>
 
-          <div class="div-editar-dados">
-            <label>Data de Nascimento</label>
-            <input type="text" min="0" class="divs-botao" />
-            <br />
-          </div>
+        <div className="divs-cadastro">
+          <label>Data de Nascimento</label>
+          <input
+            onChange={(e) => setBirthdate(e.target.value)}
+            type="date"
+            min="0"
+            className="divs-botao"
+          />
+          <br />
+        </div>
 
-          <div class="div-editar-dados">
-            <label>Gênero</label>
-            <input type="text" class="divs-botao" />
-            <br />
-          </div>
+        <div className="divs-cadastro">
+          <label>Gênero</label>
+          <select
+            onChange={(e) => setGender(e.target.value)}
+            className="divs-botao"
+          >
+            <option value=""></option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outros">Outros</option>
+          </select>
+          <br />
+        </div>
 
-          <div class="div-editar-dados">
-            <label>Email</label>
-            <input type="text" class="divs-botao" />
-            <br />
-          </div>
+        <div className="divs-cadastro">
+          <label>Email</label>
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            className="divs-botao"
+          />
+          <br />
+        </div>
 
-          <div class="div-editar-dados">
-            <label>Senha</label>
-            <input type="password" class="divs-botao" />
-          </div>
-
-          <div class="div-editar-dados div-btns-editar">
-            <input class="btns-edit" type="submit" value="Concluir" />
-          </div>
-        </form>
-        <form>
-          <input type="submit" value="Deletar minha conta" />
-        </form>
-      </main>
-    );
-  } else {
-    return <main>Não está logado</main>;
-  }
+        <div className="divs-cadastro">
+          <label>Senha</label>
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            className="divs-botao"
+          />
+        </div>
+        <input type="submit" value="Atualizar conta"></input>
+      </form>
+      <form onSubmit={deletarConta}>
+        <input type="submit" value="Deletar minha conta" />
+      </form>
+    </main>
+  );
 }
 
 export default EditarUsuario;

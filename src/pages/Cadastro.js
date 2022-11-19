@@ -34,7 +34,16 @@ function Cadastro() {
         password: password,
       }),
       headers: { "Content-type": "application/json", charset: "UTF-8" },
-    });
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.errors) {
+          window.alert(JSON.stringify(json.errors));
+        } else {
+          window.alert("CADASTRADO COM SUCESSO.");
+          window.location.href = "/login";
+        }
+      });
   };
 
   return (

@@ -14,15 +14,11 @@ function NavBar({ user, logout }) {
         <li>
           <Link to="/users/editarUsuario">EDITAR_USUARIO</Link>
         </li>
-      </ul>
-      <lu>
         <li>BEM VINDO {user.username}!</li>
-      </lu>
-      <lu>
         <li>
           <button onClick={logout}>LOGOUT</button>
         </li>
-      </lu>
+      </ul>
     </nav>
   ) : (
     <nav className="nav-bar">

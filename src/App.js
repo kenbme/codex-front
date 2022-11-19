@@ -35,7 +35,7 @@ function App() {
           <Route path="/" element={<Index />}></Route>
           <Route
             path="/users/editarUsuario"
-            element={<EditarUsuario user={getUser()} />}
+            element={<EditarUsuario user={getUser()} logout={logout} />}
           ></Route>
           <Route path="/tarefas" element={<Tarefas user={getUser()} />}></Route>
         </Routes>
