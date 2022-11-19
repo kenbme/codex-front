@@ -3,18 +3,14 @@
   background-color: #012030;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-bar .right {
-  display: flex;
-  flex-direction: row;
+  justify-content: right;
   align-items: center;
 }
 
 .nav-bar ul {
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .nav-bar li {
