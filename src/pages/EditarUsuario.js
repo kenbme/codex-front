@@ -72,8 +72,13 @@ function EditarUsuario({ user, logout }) {
   };
 
   return (
-    <main>
-      <form onSubmit={editarUsuarioSubmit}>
+    <main className="main-editar-usuario">
+      <div id="form-editar-usuario">
+      <form onSubmit={editarUsuarioSubmit} id="editar-usuario">
+
+        <div className="div-editar-dados"><h1>Editar Usuário</h1></div>
+        <hr color="#13678A" />
+
         <div className="divs-cadastro">
           <label>Nome completo</label>
           <input
@@ -127,11 +132,12 @@ function EditarUsuario({ user, logout }) {
             className="divs-botao"
           />
         </div>
-        <input type="submit" value="Atualizar conta"></input>
+        <input id="btn-concluir" className="btns-edit" type="submit" value="Atualizar conta"></input>
       </form>
       <form onSubmit={deletarConta}>
-        <input type="submit" value="Deletar minha conta" />
+        <input id="btn-deletar" type="submit" value="Deletar minha conta" />
       </form>
+      </div>
     </main>
   );
 }

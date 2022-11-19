@@ -122,10 +122,11 @@ function Cadastro() {
           <div className="divs-cadastro div-btn-login">
             <input id="btn-cadastro" type="submit" value="Cadastrar" />
           </div>
+
           <div className="link-cadastro">
             <p>
-              Já tem uma conta?
-              <Link to="/login">Login</Link>
+              Já tem uma conta? 
+              <Link to="/login"> Login</Link>
             </p>
           </div>
         </form>
