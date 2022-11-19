@@ -1,10 +1,6 @@
-import NavBar from "../components/navbar/NavBar";
-import { useEffect, useState } from "react";
-
 function Index() {
   return (
     <>
-      <NavBar />
       <main>
         <div id="apresentacao">
           <h1>Codex - Project</h1>

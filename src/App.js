@@ -3,7 +3,9 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Tarefas from "./pages/Tarefas";
-import EditarUsuario from "./pages/EditarUsuario"
+import EditarUsuario from "./pages/EditarUsuario";
+import NavBar from "./components/navbar/NavBar";
+import "./style.css";
 
 function setToken(token) {
   sessionStorage.setItem("token", JSON.stringify(token));
@@ -27,15 +29,29 @@ function getUsername() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Index />}></Route>
-        <Route path="/cadastro" element={<Cadastro/>}></Route>
-        <Route path="/login" element={<Login setToken={setToken} setUsername={setUsername} />}></Route>
-        <Route path="/users/editarUsuario" element={<EditarUsuario getToken={getToken} getUsername={getUsername} />}></Route>
-        <Route path="/tarefas" element={<Tarefas getToken={getToken} getUsername={getUsername} />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Index />}></Route>
+          <Route path="/cadastro" element={<Cadastro />}></Route>
+          <Route
+            path="/login"
+            element={<Login setToken={setToken} setUsername={setUsername} />}
+          ></Route>
+          <Route
+            path="/users/editarUsuario"
+            element={
+              <EditarUsuario getToken={getToken} getUsername={getUsername} />
+            }
+          ></Route>
+          <Route
+            path="/tarefas"
+            element={<Tarefas getToken={getToken} getUsername={getUsername} />}
+          ></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

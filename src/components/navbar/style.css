@@ -1,0 +1,34 @@
+.nav-bar {
+  padding: 15px 10px 15px 10px;
+  background-color: #012030;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-bar ul {
+  display: flex;
+}
+
+.nav-bar li {
+  margin-right: 15px;
+}
+
+.nav-bar li:last-of-type {
+  margin-right: 0px;
+}
+
+.nav-bar a {
+  color: #dafbda;
+}
+
+.nav-bar a:hover {
+  color: blue;
+}

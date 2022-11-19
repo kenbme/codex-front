@@ -10,7 +10,7 @@ function Cadastro() {
 
   const cadastroSubmit = (e) => {
     e.preventDefault();
-    var _gender = '';
+    var _gender = "";
     switch (gender) {
       case "Masculino":
         _gender = "Male";
@@ -32,34 +32,12 @@ function Cadastro() {
         email: email,
         password: password,
       }),
-      headers: { "Content-type": "application/json", "charset": "UTF-8" },
-    })
+      headers: { "Content-type": "application/json", charset: "UTF-8" },
+    });
   };
 
   return (
-    <>
-      <nav id="nav-bar">
-        <div className="left"></div>
-        <div className="right">
-          <ul>
-            <a href="index.html" className="nav-button">
-              APRESENTAÇÃO
-            </a>
-          </ul>
-
-          <ul>
-            <a href="cadastro.html" className="nav-button">
-              CADASTRO
-            </a>
-          </ul>
-
-          <ul>
-            <a href="login.html" className="nav-button" id="botao-login">
-              LOGIN
-            </a>
-          </ul>
-        </div>
-      </nav>
+    <main>
       <div className="main-cadastro">
         <form onSubmit={cadastroSubmit} id="cadastro">
           <div className="divs-cadastro">
@@ -142,7 +120,7 @@ function Cadastro() {
           </div>
         </form>
       </div>
-    </>
+    </main>
   );
 }
 
