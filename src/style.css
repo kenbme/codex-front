@@ -4,8 +4,14 @@
   border: 0;
   text-decoration: none;
   list-style: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  background-color: #EEEEEE;
 }
 
-main {
+/*main {
   padding: 0px 10px 0px 10px;
-}
+}*/
+
+

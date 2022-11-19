@@ -120,9 +120,8 @@ function Cadastro() {
           </div>
 
           <div className="divs-cadastro div-btn-login">
-            <input type="submit" value="Cadastrar" />
+            <input id="btn-cadastro" type="submit" value="Cadastrar" />
           </div>
-
           <div className="link-cadastro">
             <p>
               Já tem uma conta?

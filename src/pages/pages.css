@@ -1,0 +1,338 @@
+#main, .main-cadastro, .main-login, .main-editar-usuario {
+    display: flex;
+    height: 100%;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+  }
+
+.main-cadastro, .main-login, .main-editar-usuario {
+  height: 92vh;
+}
+  
+  #cadastro, #login, #editar-usuario {
+    background-color: #F5F5F5;
+  }
+  
+  /* Estilização do Login */
+  h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #13678A;
+  }
+  hr {
+    margin-bottom: 10px;
+  }
+  
+  #botao-login {
+    display: flex;
+    justify-content: right;
+  }
+  
+  .divs-login {
+    margin: 18px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .divs-botao {
+    padding: 5px 4px;
+    border: 1px solid #13678A;
+    border-radius: 8px;
+  }
+  
+  #login {
+    width: 320px;
+    height: 300px;
+    border: 1px solid #13678A;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  #btn-login, #btn-cadastro {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #13678A;
+    color: #e6e6e6;
+    background-color: #13678A;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  #btn-login:hover, #btn-cadastro:hover,
+  #btn-deletar, .btns-edit {
+    cursor: pointer;
+  }
+  
+  .link-cadastro, .link-login {
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Estilização do Cadastro */
+  #cadastro {
+    width: 320px;
+    height: 510px;
+    border: 1px solid #13678A;
+    border-radius: 10px;
+    padding: 10px 20px;
+  }
+  
+  .divs-cadastro {
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .div-btn-login {
+    margin: 10px 0;
+  }
+  
+  /* Estilização da Tela de Editar Usuário */
+  #editar-usuario {
+    width: 320px;
+    height: 460px;
+    border: 1px solid #13678A;
+    border-radius: 10px;
+    padding: 10px 20px;
+  }
+  
+  .div-editar-dados {
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .div-btns-editar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  .btns-edit {
+    height: 35px;
+    width: 49%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #EEEEEE;
+    color: #e6e6e6;
+    border-radius: 5px;
+  }
+.cancelar-edit {
+  text-decoration: none;
+  background-color: #d51a1a;
+  border: 1px solid #EEEEEE;
+  color: #e6e6e6;
+  border-radius: 5px;
+  margin: 0;
+  height: 34px;
+  width: 49%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  #btn-concluir {
+    background-color: #0daf28;
+  }
+  
+  #btn-deletar {
+    color: #d51a1a;
+    border: 1px solid #d51a1a;
+    height: 35px;
+    padding: 4px;
+    font-size: 15px;
+    border-radius: 5px;
+  }
+  
+  /* Estilização da Nav-Bar */
+  #nav-bar {
+    height: 8vh;
+    width: 100%;
+    background-color: #012030;
+    color: #dafbda;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bxs-home, .bxs-user-circle, .bx-chevron-down {
+    font-size: 25px;
+  }
+  .left {
+    margin-left: 25px;
+  }
+  .right {
+    margin-right: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  #user-button {
+    background: none;
+    border: none;
+    color: white;
+    margin-left: 5px;
+  }
+  #user-button:hover {
+    cursor: pointer;
+  }
+
+  .user li, .user li ul {
+    list-style: none;
+  }
+  #dropdown-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 7vh;
+    right: 25px;
+    border: 2px solid grey;
+    border-radius: 8px;
+    background-color: #1c2c35;
+  }
+  .user li ul li {
+    margin: 6px 0;
+    display: flex;
+    justify-content: right;
+    padding: 5px 10px;
+  }
+  .user li ul li a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .user .bx {
+    margin-left: 5px;
+  }
+  .li-edit {
+    color: #EEEEEE;
+  }
+  .li-exit {
+    color: #d51a1a;
+  }
+
+  .bxs-home, .nav-button {
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: #EEEEEE;
+  }
+  .nav-button {
+    margin: 0 20px;
+  }
+  .bxs-home:hover, .nav-button:hover {
+    color: blue;
+  }
+
+/* Corpo da Apresentação*/
+main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#apresentacao {
+  width: 80%;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.paragrafo{
+  margin-top: 10px;
+}
+#div-imagem {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.imagem-apresentacao{
+  margin-top: 40px;
+}
+
+/* Estilização das tarefas */
+#main-tarefas {
+  display: flex;
+  flex-direction: column;
+}
+#tarefas {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.div-tarefa {
+  margin: 3px auto;
+  width: 96vw;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #13678A;
+  border-radius: 2px;
+  align-items: center;
+  justify-content: space-between;
+}
+.div-tarefa div {
+  display: flex;
+  flex-direction: row;
+}
+
+.topico{
+  margin-top: 20px;
+}
+
+.marcador, .data, .titulo, .button {
+  margin: 6px;
+}
+
+.button a {
+  right: 0;
+}
+
+#main-tarefas .bx-edit {
+  font-size: 25px;
+  text-decoration: none;
+  color: #012030
+}
+
+/* Botão Flutuante */
+.fab{
+  position: fixed;
+  bottom:10px;
+  right:10px;
+}
+
+.fab button{
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  background-color: #13678A;
+  border: none;
+  box-shadow: 0 1px 5px rgba(0,0,0,.4);
+  font-size: 24px;
+  color: white;
+}
+
+.fab button.btn-add{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #13678A;
+  right: 5px;
+  bottom: 6px;
+  z-index: 20;
+}
+
+.bx-plus {
+  font-size: 30px;
+}
