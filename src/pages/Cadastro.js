@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Cadastro() {
   const [username, setUsername] = useState();
@@ -115,7 +116,8 @@ function Cadastro() {
 
           <div className="link-cadastro">
             <p>
-              Já tem uma conta? <a href="login.html">Login</a>
+              Já tem uma conta?
+              <Link to="/login">Login</Link>
             </p>
           </div>
         </form>

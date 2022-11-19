@@ -7,25 +7,18 @@ import EditarUsuario from "./pages/EditarUsuario";
 import NavBar from "./components/navbar/NavBar";
 import "./style.css";
 
-function setToken(token) {
+function setUser(username, token) {
+  sessionStorage.setItem("username", JSON.stringify(username));
   sessionStorage.setItem("token", JSON.stringify(token));
 }
 
-function getToken() {
+const getUser = () => {
   const tokenString = sessionStorage.getItem("token");
-  const token = JSON.parse(tokenString);
-  return token?.token;
-}
-
-function setUsername(username) {
-  sessionStorage.setItem("username", JSON.stringify(username));
-}
-
-function getUsername() {
   const usernameString = sessionStorage.getItem("username");
+  const token = JSON.parse(tokenString);
   const username = JSON.parse(usernameString);
-  return username;
-}
+  return token && username ? { username, token } : undefined;
+};
 
 function App() {
   return (
@@ -35,20 +28,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Index />}></Route>
           <Route path="/cadastro" element={<Cadastro />}></Route>
-          <Route
-            path="/login"
-            element={<Login setToken={setToken} setUsername={setUsername} />}
-          ></Route>
+          <Route path="/login" element={<Login setUser={setUser} />}></Route>
           <Route
             path="/users/editarUsuario"
-            element={
-              <EditarUsuario getToken={getToken} getUsername={getUsername} />
-            }
+            element={<EditarUsuario user={getUser()} />}
           ></Route>
-          <Route
-            path="/tarefas"
-            element={<Tarefas getToken={getToken} getUsername={getUsername} />}
-          ></Route>
+          <Route path="/tarefas" element={<Tarefas user={getUser()} />}></Route>
         </Routes>
       </BrowserRouter>
     </>

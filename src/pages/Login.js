@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Login(props) {
+function Login({ setUser }) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const loginSubmit = (e) => {
@@ -11,10 +11,7 @@ function Login(props) {
       headers: { "Content-type": "application/json", charset: "UTF-8" },
     })
       .then((response) => response.json())
-      .then((json) => {
-        props.setToken(json);
-        props.setUsername(username);
-      })
+      .then((json) => setUser(username, json.token))
       .catch((err) => console.log(err));
   };
   return (

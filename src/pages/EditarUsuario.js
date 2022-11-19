@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function EditarUsuario({ getToken, getUsername }) {
+function EditarUsuario({ user }) {
   const [fullname, setFullname] = useState();
   const [birthdate, setBirthdate] = useState();
   const [gender, setGender] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  if (getToken() && getUsername()) {
+  if (user) {
     const editarUsuarioSubmit = (e) => {
       e.preventDefault();
       var _gender = "";
@@ -20,8 +20,7 @@ function EditarUsuario({ getToken, getUsername }) {
         case "Outros":
           _gender = "Other";
       }
-
-      fetch(`http://localhost:4000/users/${getUsername()}`, {
+      fetch(`http://localhost:4000/users/${user.username}`, {
         method: "PUT",
         body: JSON.stringify({
           fullname: fullname,
@@ -31,8 +30,9 @@ function EditarUsuario({ getToken, getUsername }) {
           password: password,
         }),
         headers: {
-          "Content-type": "application/json", "charset":" UTF-8",
-          "x-access-token": getToken(),
+          "Content-type": "application/json",
+          charset: " UTF-8",
+          "x-access-token": user.token,
         },
       })
         .then((response) => response.json())

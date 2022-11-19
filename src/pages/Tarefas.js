@@ -1,32 +1,33 @@
 import { useState } from "react";
-import Task from "../components/task/Task";
+import Tarefa from "../components/tarefa/Tarefa";
 
-function Tarefas({ getToken, getUsername }) {
+function Tarefas({ user }) {
   const [tasks, setTasks] = useState();
   const getTasks = () => {
-    fetch(`http://localhost:4000/users/${getUsername()}/tasks`, {
+    fetch(`http://localhost:4000/users/${user.username}/tasks`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
         charset: "UTF-8",
-        "x-access-token": getToken(),
+        "x-access-token": user.token,
       },
     })
       .then((response) => response.json())
-      .then((json) => setTasks(json))
+      .then((tasks) => setTasks(tasks))
       .catch((error) => console.log(error));
   };
 
   var _tasks =
-    tasks && tasks.map((task) => <Task key={task._id} task={task} />);
+    tasks &&
+    tasks.map((task) => <Tarefa key={task._id} user={user} task={task} />);
 
-  return getToken() && getUsername() ? (
-    <div>
+  return user ? (
+    <main>
       <button onClick={getTasks}>CARREGAR TAREFAS</button>
       {_tasks}
-    </div>
+    </main>
   ) : (
-    <div>Não está logado</div>
+    <main>Não está logado</main>
   );
 }
 
