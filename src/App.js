@@ -12,6 +12,12 @@ function setUser(username, token) {
   sessionStorage.setItem("token", JSON.stringify(token));
 }
 
+function logout() {
+  sessionStorage.removeItem("username");
+  sessionStorage.removeItem("token");
+  window.location.href = "/login";
+}
+
 const getUser = () => {
   const tokenString = sessionStorage.getItem("token");
   const usernameString = sessionStorage.getItem("username");
@@ -21,14 +27,12 @@ const getUser = () => {
 };
 
 function App() {
-  return (
+  return getUser() ? (
     <>
       <BrowserRouter>
-        <NavBar />
+        <NavBar user={getUser()} logout={logout} />
         <Routes>
           <Route path="/" element={<Index />}></Route>
-          <Route path="/cadastro" element={<Cadastro />}></Route>
-          <Route path="/login" element={<Login setUser={setUser} />}></Route>
           <Route
             path="/users/editarUsuario"
             element={<EditarUsuario user={getUser()} />}
@@ -37,6 +41,15 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
+  ) : (
+    <BrowserRouter>
+      <NavBar user={undefined} setUser={undefined} />
+      <Routes>
+        <Route path="/" element={<Index />}></Route>
+        <Route path="/cadastro" element={<Cadastro />}></Route>
+        <Route path="/login" element={<Login setUser={setUser} />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

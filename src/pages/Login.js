@@ -11,7 +11,14 @@ function Login({ setUser }) {
       headers: { "Content-type": "application/json", charset: "UTF-8" },
     })
       .then((response) => response.json())
-      .then((json) => setUser(username, json.token))
+      .then((json) => {
+        if (json.token) {
+          setUser(username, json.token);
+          window.location.href = "/tarefas";
+        } else {
+          window.alert("Usuário ou/e Senha errado(s).");
+        }
+      })
       .catch((err) => console.log(err));
   };
   return (

@@ -17,7 +17,7 @@ export default function Task({ user, task }) {
       .then((response) => response.json())
       .then((json) => {
         if (!json.errors) {
-          window.alert("Recarregue a página para visualizar as alterações.");
+          window.alert("Recarregue as tarefas para visualizar as alterações.");
         } else {
           window.alert("ERRO: " + JSON.stringify(json.errors));
         }
