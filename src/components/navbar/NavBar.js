@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 
 function NavBar({ user, logout }) {
   
-  function showNavBar(e) {
+  function showNavBar() {
     var btnMenuArrow = document.getElementById("btnMenuArrow");
     var optionsNavbar = document.getElementById("options-navbar");
-    console.log(e);
     if (optionsNavbar.style.display === "") {
       optionsNavbar.style.display = "none"
     }
@@ -22,7 +21,7 @@ function NavBar({ user, logout }) {
   }
 
   return user ? (
-    <nav className="nav-bar">
+    <nav className="nav-bar navbar-user-on">
       <ul id="options-navbar" >
         <li>
           <Link to="/">APRESENTAÇÃO</Link>
@@ -41,7 +40,7 @@ function NavBar({ user, logout }) {
       <div><button className="btn-navbar" onClick={showNavBar} type="button"><i id="btnMenuArrow" class='bx bx-menu'></i></button></div>
     </nav>
   ) : (
-    <nav className="nav-bar">
+    <nav className="nav-bar navbar-user-off">
       <ul>
         <li>
           <Link to="/">APRESENTAÇÃO</Link>

@@ -52,6 +52,7 @@
   font-size: 20px;
 }
 
+
 @media (max-width: 400px) {
   .form-new-task div {
     display: flex;
@@ -63,23 +64,25 @@
   }
 }
 
-
-
 @media (max-width: 600px) {
   .bx-menu {
     display: flex;
   }
-  .nav-bar {
+  .navbar-user-on {
     justify-content: center;
     flex-direction: column;
     padding: 10px;
   }
-  .nav-bar ul {
+  .navbar-user-on ul {
     display: none;
     flex-direction: column;
   }
-  .nav-bar ul li {
+  .navbar-user-on ul li {
     margin: 5px 0;
     border-bottom: 1px solid grey;
+  }
+
+  .navbar-user-off {
+    justify-content: center;
   }
 }
