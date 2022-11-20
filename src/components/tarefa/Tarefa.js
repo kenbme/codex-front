@@ -28,45 +28,67 @@ export default function Task({ user, task }) {
   var _date = new Date(task.date);
   var defaultDate =
     _date.getFullYear() + "-" + (_date.getMonth() + 1) + "-" + _date.getDate();
+  
+  function editTask() {
+    var div_edit_tarefas = document.getElementById("edit-tarefas");
+      if (div_edit_tarefas.style.display === "none") {
+        div_edit_tarefas.style.display = "flex";
+      } else {
+        div_edit_tarefas.style.display = "none";
+      }
+  };
+
   return ( <>
-    <div>
-      <p>ID: {task._id}</p>
-      <p>NOME: {task.name}</p>
-      <p>DATA: {task.date}</p>
-      <p>COMPLETA: {task.completed.toString()}</p>
-      <form onSubmit={submit}>
-        <input
-          type="date"
-          onChange={(e) => setDate(e.target.value)}
-          defaultValue={defaultDate}
-        />
-        <input
-          type="checkbox"
-          onChange={(e) => setCompleted(e.target.checked)}
-          defaultChecked={task.completed}
-        />
-        <input type="submit" value="Atualizar" />
-      </form>
+
+<div id="main-tarefas">
+<h1 className="topico">Tarefas</h1>
+<div id="tarefas">
+  <div className="div-tarefa">
+
+    <div className="tarefas">
+      <div>
+        <div className="marcador"><input type="checkbox" defaultChecked={task.completed}/></div>
+        <div className="data">
+          <p>{task.date}</p>
+        </div>
+        <div className="titulo">
+          <p>{task.name}</p>
+        </div>
+      </div>
+      <div>
+        <div className="button"><button type="button" onClick={editTask} id="btn-edit-task"><i className='bx bx-edit'></i></button></div>
+      </div>
     </div>
 
-<main id="main-tarefas">
-<h1 class="topico">Tarefas</h1>
-<form id="tarefas">
-  <div class="div-tarefa">
-    <div>
-      <div class="marcador"><input type="checkbox" defaultChecked={task.completed}/></div>
-      <div class="data">
-        <p>{task.date}</p>
+    <div id="edit-tarefas" style={{display: "none"}}>
+    <form  onSubmit={submit}>
+      <div>
+        <div className="marcador">
+          <input
+            type="checkbox"
+            onChange={(e) => setCompleted(e.target.checked)}
+            defaultChecked={task.completed}
+          />
+        </div>
+        <div className="data">
+          <input
+            type="date"
+            onChange={(e) => setDate(e.target.value)}
+            defaultValue={defaultDate}
+          />
+        </div>
       </div>
-      <div class="titulo">
-        <p>{task.name}</p>
+      <div>
+        <input id="btn-atualizar" type="submit" value="Atualizar" />
       </div>
+      <div>
+        <input id="btn-deletar-task" type="submit" value="Deletar" />
+      </div>
+    </form>
     </div>
-    <div>
-      <div class="button"><a href="#"><i class='bx bx-edit'></i></a></div>
-    </div>
+
   </div>
-</form>
-</main>
+</div>
+</div>
 </>);
 }

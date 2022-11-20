@@ -46,15 +46,16 @@ function Tarefas({ user }) {
     tasks.map((task) => <Tarefa key={task._id} user={user} task={task} />);
 
   return user ? (
-    <main>
-      <button onClick={getTasks}>CARREGAR TAREFAS</button>
-      {_tasks}
-      <form onSubmit={adicionaTarefa}>
-        <p>ADICIONAR NOVA TAREFA</p>
-        <input type="text" onChange={(e) => setName(e.target.value)}></input>
-        <input type="date" onChange={(e) => setDate(e.target.value)}></input>
-        <input type="submit" value="ENVIAR"></input>
+    <main id="tasks">
+      <form onSubmit={adicionaTarefa} className="form-new-task">
+        <div>
+          <input type="text" placeholder="Nova tarefa" onChange={(e) => setName(e.target.value)}></input>
+          <input type="date" onChange={(e) => setDate(e.target.value)}></input>
+          <input type="submit" value="ENVIAR"></input>
+        </div>
       </form>
+      <button id="btn-load-tasks" onClick={getTasks}>CARREGAR TAREFAS</button>
+      {_tasks}
     </main>
   ) : (
     <main>Não está logado</main>

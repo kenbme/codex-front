@@ -1,47 +1,104 @@
 /* Estilização das tarefas */
+#tasks {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-new-task {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-new-task div {
+  margin: 10px auto;
+}
+.form-new-task div input {
+  margin: 0 5px;
+  padding: 4px;
+  border: 1px solid #13678a;
+  border-radius: 2px;
+}
+
+#btn-load-tasks {
+  padding: 8px;
+  background-color: #13678a;
+  color: #EEEEEE;
+  border-radius: 3px;
+}
+
 #main-tarefas {
-    display: flex;
-    flex-direction: column;
-  }
-  #tarefas {
-    width: 100%;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .div-tarefa {
-    margin: 3px auto;
-    width: 96vw;
-    display: flex;
-    flex-direction: row;
-    border: 2px solid #13678a;
-    border-radius: 2px;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .div-tarefa div {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .topico {
-    margin-top: 20px;
-  }
-  
-  .marcador,
-  .data,
-  .titulo,
-  .button {
-    margin: 6px;
-  }
-  
-  .button a {
-    right: 0;
-  }
-  
-  #main-tarefas .bx-edit {
-    font-size: 25px;
-    text-decoration: none;
-    color: #012030;
-  }
+  display: flex;
+  flex-direction: column;
+}
+#tarefas {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.div-tarefa {
+  margin: 3px auto;
+  width: 96vw;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #13678a;
+  border-radius: 2px;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.tarefas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.div-tarefa div {
+  display: flex;
+  flex-direction: row;
+}
+#edit-tarefas form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#edit-tarefas {
+  background-color: #13678a;
+  padding: 4px 0;
+}
+
+.topico {
+  margin-top: 20px;
+}
+
+.marcador,
+.data,
+.titulo,
+.button {
+  margin: 6px;
+}
+
+.button a {
+  right: 0;
+}
+
+#main-tarefas .bx-edit {
+  font-size: 25px;
+  text-decoration: none;
+  color: #012030;
+}
+
+#btn-atualizar {
+  background-color: #012030;
+  color: #EEEEEE;
+  padding: 1px 4px;
+  border-radius: 5px;
+}
+#btn-deletar-task {
+  margin-left: 5px;
+  background-color: #d51a1a;
+  color: #EEEEEE;
+  padding: 1px 4px;
+  border-radius: 5px;
+}
+
