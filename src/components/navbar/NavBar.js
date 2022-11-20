@@ -37,7 +37,7 @@ function NavBar({ user, logout }) {
           <button className="btn-logout" onClick={logout}>LOGOUT</button>
         </li>
       </ul>
-      <div><button className="btn-navbar" onClick={showNavBar} type="button"><i id="btnMenuArrow" class='bx bx-menu'></i></button></div>
+      <div><button className="btn-navbar" onClick={showNavBar} type="button"><i id="btnMenuArrow" className='bx bx-menu'></i></button></div>
     </nav>
   ) : (
     <nav className="nav-bar navbar-user-off">

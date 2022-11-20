@@ -25,9 +25,12 @@ export default function Task({ user, task }) {
       })
       .catch((error) => console.log(error));
   };
+  
   var _date = new Date(task.date);
   var defaultDate =
     _date.getFullYear() + "-" + (_date.getMonth() + 1) + "-" + _date.getDate();
+
+  var dataFormatada = ((_date.getUTCDate() )) + "/" + ((_date.getUTCMonth() + 1)) + "/" + _date.getUTCFullYear();
 
   function editTask() {
     var div_edit_tarefas = document.getElementById(`task-${task._id}`);
@@ -69,7 +72,7 @@ export default function Task({ user, task }) {
                   <input type="checkbox" defaultChecked={task.completed} />
                 </div>
                 <div className="data">
-                  <p>{task.date}</p>
+                  <p>{dataFormatada}</p>
                 </div>
                 <div className="titulo">
                   <p>{task.name}</p>
