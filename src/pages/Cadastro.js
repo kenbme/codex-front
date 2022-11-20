@@ -11,7 +11,7 @@ function Cadastro() {
 
   const cadastroSubmit = (e) => {
     e.preventDefault();
-    var _gender = "";
+    var _gender;
     switch (gender) {
       case "Masculino":
         _gender = "Male";
@@ -21,6 +21,10 @@ function Cadastro() {
         break;
       case "Outros":
         _gender = "Other";
+        break;
+      default:
+        _gender = "";
+        break;
     }
 
     fetch("http://localhost:4000/signup", {
@@ -125,7 +129,7 @@ function Cadastro() {
 
           <div className="link-cadastro">
             <p>
-              Já tem uma conta? 
+              Já tem uma conta?
               <Link to="/login"> Login</Link>
             </p>
           </div>
