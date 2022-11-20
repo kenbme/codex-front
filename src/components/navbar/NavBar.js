@@ -9,10 +9,10 @@ function NavBar({ user, logout }) {
           <Link to="/">APRESENTAÇÃO</Link>
         </li>
         <li>
-          <Link to="/tarefas">TAREFAS</Link>
+          <Link to={`/usuarios/${user.username}/tarefas`}>TAREFAS</Link>
         </li>
         <li>
-          <Link to="/users/editarUsuario">EDITAR_USUARIO</Link>
+          <Link to={`/usuarios/${user.username}/editar`}>EDITAR_USUARIO</Link>
         </li>
         <li>BEM VINDO {user.username}!</li>
         <li>

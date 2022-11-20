@@ -7,7 +7,6 @@ import EditarUsuario from "./pages/EditarUsuario";
 import NavBar from "./components/navbar/NavBar";
 import "./style.css";
 
-
 function setUser(username, token) {
   sessionStorage.setItem("username", JSON.stringify(username));
   sessionStorage.setItem("token", JSON.stringify(token));
@@ -28,23 +27,27 @@ const getUser = () => {
 };
 
 function App() {
-  return getUser() ? (
+  const user = getUser();
+  return user ? (
     <>
       <BrowserRouter>
-        <NavBar user={getUser()} logout={logout} />
+        <NavBar user={user} logout={logout} />
         <Routes>
           <Route path="/" element={<Index />}></Route>
           <Route
-            path="/users/editarUsuario"
-            element={<EditarUsuario user={getUser()} logout={logout} />}
+            path={`/usuarios/${user.username}/editar`}
+            element={<EditarUsuario user={user} logout={logout} />}
           ></Route>
-          <Route path="/tarefas" element={<Tarefas user={getUser()} />}></Route>
+          <Route
+            path={`/usuarios/${user.username}/tarefas`}
+            element={<Tarefas user={user} />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
   ) : (
     <BrowserRouter>
-      <NavBar user={undefined} setUser={undefined} />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Index />}></Route>
         <Route path="/cadastro" element={<Cadastro />}></Route>

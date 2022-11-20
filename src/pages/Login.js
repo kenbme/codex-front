@@ -15,7 +15,7 @@ function Login({ setUser }) {
       .then((json) => {
         if (json.token) {
           setUser(username, json.token);
-          window.location.href = "/tarefas";
+          window.location.href = `/usuarios/${username}/tarefas`;
         } else {
           window.alert("Usuário ou/e Senha errado(s).");
         }
