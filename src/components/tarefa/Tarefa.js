@@ -30,7 +30,7 @@ export default function Task({ user, task }) {
     _date.getFullYear() + "-" + (_date.getMonth() + 1) + "-" + _date.getDate();
 
   function editTask() {
-    var div_edit_tarefas = document.getElementById("edit-tarefas");
+    var div_edit_tarefas = document.getElementById(`task-${task._id}`);
     if (div_edit_tarefas.style.display === "none") {
       div_edit_tarefas.style.display = "flex";
     } else {
@@ -60,11 +60,10 @@ export default function Task({ user, task }) {
 
   return (
     <>
-      <div id="main-tarefas">
-        <h1 className="topico">Tarefas</h1>
-        <div id="tarefas">
+      <div className="main-tarefas">
+        <div className="tarefas">
           <div className="div-tarefa">
-            <div className="tarefas">
+            <div className="info-tarefas">
               <div>
                 <div className="marcador">
                   <input type="checkbox" defaultChecked={task.completed} />
@@ -85,7 +84,7 @@ export default function Task({ user, task }) {
               </div>
             </div>
 
-            <div id="edit-tarefas" style={{ display: "none" }}>
+            <div id={`task-${task._id}`} className="edit-tarefas" style={{ display: "none" }}>
               <form onSubmit={submit}>
                 <div>
                   <div className="marcador">

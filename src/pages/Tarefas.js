@@ -55,6 +55,7 @@ function Tarefas({ user }) {
         </div>
       </form>
       <button id="btn-load-tasks" onClick={getTasks}>CARREGAR TAREFAS</button>
+      <h1 className="topico">Tarefas</h1>
       {_tasks}
     </main>
   ) : (

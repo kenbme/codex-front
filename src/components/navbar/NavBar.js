@@ -12,11 +12,11 @@ function NavBar({ user, logout }) {
           <Link to={`/usuarios/${user.username}/tarefas`}>TAREFAS</Link>
         </li>
         <li>
-          <Link to={`/usuarios/${user.username}/editar`}>EDITAR_USUARIO</Link>
+          <Link to={`/usuarios/${user.username}/editar`}>EDITAR USUARIO</Link>
         </li>
-        <li>BEM VINDO {user.username}!</li>
+        <li className="navbar-username">Bem Vindo <b>{user.username}</b>!</li>
         <li>
-          <button onClick={logout}>LOGOUT</button>
+          <button className="btn-logout" onClick={logout}>LOGOUT</button>
         </li>
       </ul>
     </nav>

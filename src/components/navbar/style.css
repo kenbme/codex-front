@@ -28,3 +28,24 @@
 .nav-bar a:hover {
   color: blue;
 }
+
+.navbar-username {
+  color: #EEEEEE;
+}
+
+.btn-logout {
+  border: 2px solid #13678a;
+  border-radius: 3px;
+  padding: 3px 4px;
+}
+
+@media (max-width: 400px) {
+  .form-new-task div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form-new-task div input {
+    margin: 5px 0;
+  }
+}
