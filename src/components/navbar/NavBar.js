@@ -2,9 +2,28 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 function NavBar({ user, logout }) {
+  
+  function showNavBar(e) {
+    var btnMenuArrow = document.getElementById("btnMenuArrow");
+    var optionsNavbar = document.getElementById("options-navbar");
+    console.log(e);
+    if (optionsNavbar.style.display === "") {
+      optionsNavbar.style.display = "none"
+    }
+    if (optionsNavbar.style.display === "none") {
+      optionsNavbar.style.display = "flex";
+      btnMenuArrow.classList.add("bx-chevron-up");
+      btnMenuArrow.classList.remove("bx-menu");
+    } else {
+      optionsNavbar.style.display = "none";
+      btnMenuArrow.classList.add("bx-menu");
+      btnMenuArrow.classList.remove("bx-chevron-up");
+    }
+  }
+
   return user ? (
     <nav className="nav-bar">
-      <ul>
+      <ul id="options-navbar" >
         <li>
           <Link to="/">APRESENTAÇÃO</Link>
         </li>
@@ -19,6 +38,7 @@ function NavBar({ user, logout }) {
           <button className="btn-logout" onClick={logout}>LOGOUT</button>
         </li>
       </ul>
+      <div><button className="btn-navbar" onClick={showNavBar} type="button"><i id="btnMenuArrow" class='bx bx-menu'></i></button></div>
     </nav>
   ) : (
     <nav className="nav-bar">

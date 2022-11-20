@@ -38,6 +38,19 @@
   border-radius: 3px;
   padding: 3px 4px;
 }
+.btn-navbar {
+  border: none;
+  background: none;
+}
+.bx-chevron-up {
+  color: #EEEEEE;
+  font-size: 20px;
+}
+.bx-menu {
+  display: none;
+  color: #EEEEEE;
+  font-size: 20px;
+}
 
 @media (max-width: 400px) {
   .form-new-task div {
@@ -47,5 +60,26 @@
   }
   .form-new-task div input {
     margin: 5px 0;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .bx-menu {
+    display: flex;
+  }
+  .nav-bar {
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .nav-bar ul {
+    display: none;
+    flex-direction: column;
+  }
+  .nav-bar ul li {
+    margin: 5px 0;
+    border-bottom: 1px solid grey;
   }
 }
