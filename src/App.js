@@ -7,6 +7,7 @@ import EditarUsuario from "./pages/EditarUsuario";
 import NavBar from "./components/navbar/NavBar";
 import "./style.css";
 
+
 function setUser(username, token) {
   sessionStorage.setItem("username", JSON.stringify(username));
   sessionStorage.setItem("token", JSON.stringify(token));

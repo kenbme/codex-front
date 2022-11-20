@@ -1,0 +1,47 @@
+/* Estilização das tarefas */
+#main-tarefas {
+    display: flex;
+    flex-direction: column;
+  }
+  #tarefas {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .div-tarefa {
+    margin: 3px auto;
+    width: 96vw;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid #13678a;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .div-tarefa div {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .topico {
+    margin-top: 20px;
+  }
+  
+  .marcador,
+  .data,
+  .titulo,
+  .button {
+    margin: 6px;
+  }
+  
+  .button a {
+    right: 0;
+  }
+  
+  #main-tarefas .bx-edit {
+    font-size: 25px;
+    text-decoration: none;
+    color: #012030;
+  }
